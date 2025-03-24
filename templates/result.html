@@ -1,0 +1,111 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Livvic:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body, html {
+            height: 100%;
+        }
+
+        body {
+            font-family: "Livvic", sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-image: url("{% static 'bg_0.png' %}");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+            filter: blur(0px);
+        }
+
+        .result-container {
+            width: 50%;
+            max-width: 600px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 20px;
+            margin: 0 auto;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .result-container h2 {
+            font-size: 24px;
+            color: #cb2127;
+            margin-bottom: 15px;
+        }
+
+        .result-container p {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .score {
+            font-size: 22px;
+            font-weight: bold;
+            color: #2ecc71;
+        }
+
+        .result-container a {
+            display: inline-block;
+            background-color: #cb2127;
+            color: #fff;
+            font-size: 16px;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin-top: 15px;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .result-container a:hover {
+            background-color: #2ecc71;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 900px) {
+            .result-container {
+                width: 90%;
+                padding: 15px;
+            }
+        }
+
+        @media (max-width: 450px) {
+            .result-container {
+                width: 90%;
+                max-width: 90%;
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="result-container">
+        <h2>Quiz Completed!</h2>
+        <p>Your Score: <span class="score">10/20</span></p>
+        <p>A copy of your result has been sent to your email.</p>
+        <a href="{% url 'quiz_selection' %}">Take Another Quiz</a>
+    </div>
+
+</body>
+</html>
